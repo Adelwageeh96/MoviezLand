@@ -1,0 +1,15 @@
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\obj\Debug\net7.0\MoviezLand.EF.csproj.AssemblyReference.cache
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\obj\Debug\net7.0\MoviezLand.EF.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\obj\Debug\net7.0\MoviezLand.EF.AssemblyInfoInputs.cache
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\obj\Debug\net7.0\MoviezLand.EF.AssemblyInfo.cs
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\obj\Debug\net7.0\MoviezLand.EF.csproj.CoreCompileInputs.cache
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\bin\Debug\net7.0\MoviezLand.EF.deps.json
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\bin\Debug\net7.0\MoviezLand.EF.dll
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\bin\Debug\net7.0\MoviezLand.EF.pdb
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\obj\Debug\net7.0\MoviezLand.EF.dll
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\obj\Debug\net7.0\refint\MoviezLand.EF.dll
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\obj\Debug\net7.0\MoviezLand.EF.pdb
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\obj\Debug\net7.0\ref\MoviezLand.EF.dll
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\bin\Debug\net7.0\MoviezLand.Core.dll
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\bin\Debug\net7.0\MoviezLand.Core.pdb
+D:\Project\FullProjects\MoviezLand\MoviezLand.EF\obj\Debug\net7.0\MoviezLand.EF.csproj.CopyComplete

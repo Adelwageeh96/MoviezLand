@@ -1,0 +1,41 @@
+﻿@model EditUserViewModel
+
+@{
+	ViewData["Title"] = "Edit User";
+}
+
+<div class="col-md-4 ">
+    <h1>Edit user details</h1>
+    <form asp-action="EditUser" method="post">
+        <input type="hidden" asp-for="Id"/>
+        <div class="form-floating mb-3">
+            <input asp-for="FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <label asp-for="FirstName">First Name</label>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <label asp-for="LastName">LastName</label>
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <label asp-for="Email">Email</label>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="PhoneNumber" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <label asp-for="PhoneNumber">Phone Number</label>
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="BirthDate" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <label asp-for="BirthDate">BirthDate</label>
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+        <button type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+    </form>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

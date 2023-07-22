@@ -1,0 +1,12 @@
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\bin\Debug\net7.0\MoviezLand.Core.deps.json
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\bin\Debug\net7.0\MoviezLand.Core.dll
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\bin\Debug\net7.0\MoviezLand.Core.pdb
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\obj\Debug\net7.0\MoviezLand.Core.csproj.AssemblyReference.cache
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\obj\Debug\net7.0\MoviezLand.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\obj\Debug\net7.0\MoviezLand.Core.AssemblyInfoInputs.cache
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\obj\Debug\net7.0\MoviezLand.Core.AssemblyInfo.cs
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\obj\Debug\net7.0\MoviezLand.Core.csproj.CoreCompileInputs.cache
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\obj\Debug\net7.0\MoviezLand.Core.dll
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\obj\Debug\net7.0\refint\MoviezLand.Core.dll
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\obj\Debug\net7.0\MoviezLand.Core.pdb
+D:\Project\FullProjects\MoviezLand\MoviezLand.Core\obj\Debug\net7.0\ref\MoviezLand.Core.dll

@@ -1,0 +1,50 @@
+﻿@model AddUserViewModel
+
+@{
+	ViewData["Title"] = "Add User";
+}
+
+<div class="col-md-4 " >
+    <h1>Add User</h1>
+<form asp-action="AddUser" method="post">
+    <div class="form-floating mb-3">
+        <input asp-for="FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+        <label asp-for="FirstName">First Name</label>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+        <label asp-for="LastName">LastName</label>
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+        <label asp-for="Email">Email</label>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="PhoneNumber" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+        <label asp-for="PhoneNumber">Phone Number</label>
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="BirthDate" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+        <label asp-for="BirthDate">BirthDate</label>
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+        <label asp-for="Password">Password</label>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+        <label asp-for="ConfirmPassword">Confirm Password</label>
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <button  type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+</form>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

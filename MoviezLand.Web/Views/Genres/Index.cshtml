@@ -1,0 +1,39 @@
+﻿@model IEnumerable<GenreFormViewModel>
+
+@{
+	ViewData["Title"] = "Genres";
+}
+<style>
+    .center-buttons {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+<h1>Genres</h1>
+<table class="table table-striped mt-4">
+    <thead>
+        <tr class="bg-primary text-white">
+            <th>Name</th>
+            <th>Movies</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@string.Join(",", user.Movies.ToList())</td>
+                <td class="center-buttons">
+                    <a class="btn btn-primary" asp-controller="Genres" asp-action="Edit" asp-route-Id="@user.Id">Edit</a>
+                    <a class="btn btn-danger" asp-controller="Genres" asp-action="Delete" asp-route-Id="@user.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<partial name="_GenreForm" model="new GenreFormViewModel()"></partial>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

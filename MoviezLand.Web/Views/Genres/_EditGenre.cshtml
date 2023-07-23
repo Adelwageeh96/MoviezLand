@@ -1,0 +1,12 @@
+﻿@model GenreFormViewModel
+
+<form method="post" asp-action="Edit" asp-controller="Genres">
+   <input type="hidden" asp-for="Id"/>
+    <div class="input-group">
+        <input asp-for="Name" class="form-control" value="" placeholder="Edit..." style="max-width: 200px;" />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </div>
+    </div>
+</form>
+

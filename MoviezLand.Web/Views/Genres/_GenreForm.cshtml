@@ -1,8 +1,5 @@
 ﻿@model GenreFormViewModel
 @{
-	Layout = "_Layout";
-}
-@{
 	ViewData["Title"] = "Add Genre";
 }
 
@@ -10,7 +7,7 @@
 <form method="post" asp-action="Add" asp-controller="Genres">
 	<div asp-validation-summary="All" class="text-danger" role="alert"></div>
 	<div class="input-group mb-3">
-		<input asp-for="Name" class="form-control" placeholder="Genre name......"/>
+		<input asp-for="Name" class="form-control"value="" placeholder="Genre name......"/>
 		<div class="input-group-append">
 			<button type="submit" class="btn btn-primary">Add new genre</button>
 		</div>

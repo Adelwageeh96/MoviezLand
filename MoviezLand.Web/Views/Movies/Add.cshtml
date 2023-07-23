@@ -1,0 +1,81 @@
+﻿@model MovieFormViewModel
+
+@{
+    ViewData["Title"] = "Movie Form";
+}
+
+<h2 class="text-center">@((Model.Id > 0) ? "Edit" : "Create") Movie</h2>
+
+<hr />
+
+<section class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="border rounded p-4">
+            <form method="POST" asp-action="@(Model.Id > 0 ? "Edit" : "Create")" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label for="Title" class="text-muted">Title:</label>
+                    <input type="text" class="form-control" asp-for="Title" maxlength="250" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="text-muted">Select Genre(s):</label>
+                    <div>
+                        @foreach (var genre in Model.Genres)
+                        {
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="SelectedGenreIds" value="@genre.Id" @(Model.SelectedGenreIds != null && Model.SelectedGenreIds.Contains(genre.Id) ? "checked" : "") />
+                                <label class="form-check-label">@genre.Name</label>
+                            </div>
+                        }
+                    </div>
+                    <span asp-validation-for="SelectedGenreIds" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Year" class="text-muted">Year:</label>
+                    <input type="number" class="form-control" asp-for="Year" value="@(Model.Year > 0 ? Model.Year : string.Empty)" />
+                    <span asp-validation-for="Year" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Story" class="text-muted">Story:</label>
+                    <textarea class="form-control" asp-for="Story" maxlength="2500" rows="4"></textarea>
+                    <span asp-validation-for="Story" class="text-danger"></span>
+                </div>
+                <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" asp-for="Poster" accept=".png, .jpg" id="posterInput" />
+                    <label class="custom-file-label" asp-for="Poster" id="posterLabel">Choose Poster</label>
+                    <span asp-validation-for="Poster" class="text-danger"></span>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check"></i>
+                        Save
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-x"></i>
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    /* Additional Styles */
+    .border {
+        border: 1px solid #ced4da;
+    }
+
+    .rounded {
+        border-radius: 6px;
+    }
+
+    .custom-file-label::after {
+        content: "Browse";
+    }
+</style>

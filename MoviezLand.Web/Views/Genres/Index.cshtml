@@ -4,35 +4,73 @@
     ViewData["Title"] = "Genres";
 }
 
-<h1>Genres</h1>
-<table class="table table-striped mt-4">
-    <thead>
-        <tr class="bg-primary text-white">
-            <th>Name</th>
-            <th>Movies</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
-            <tr>
-                <td>@user.Name</td>
-                <td>@string.Join(",", user.Movies.ToList())</td>
-                <td>
-                   <partial name="_EditGenre" model="new GenreFormViewModel{Id=user.Id}"></partial>
-                </td>
-                <td>
-                    <a class="btn btn-danger" asp-controller="Genres" asp-action="Delete" asp-route-Id="@user.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h1 class="text-center">Genres</h1>
 
-<partial name="_GenreForm" model="new GenreFormViewModel()"></partial>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table table-striped mt-4">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>Name</th>
+                    <th colspan="2">Movies</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var genre in Model)
+                {
+                    <tr>
+                        <td>@genre.Name</td>
+                        <td colspan="2">
+                            <div class="row">
+                                @foreach (var movie in genre.Movies)
+                                {
+                                    <div class="col-md-6">
+                                        @movie
+                                    </div>
+                                }
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <partial name="_EditGenre" model="new GenreFormViewModel { Id = genre.Id }"></partial>
+                                <a class="btn btn-danger ml-2" asp-controller="Genres" asp-action="Delete" asp-route-Id="@genre.Id">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-4">
+        <partial name="_GenreForm" model="new GenreFormViewModel()"></partial>
+    </div>
+</div>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
 
+<style>
+    /* Additional Styles */
+    .table th {
+        font-weight: bold;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+    }
+
+    .table thead tr {
+        text-align: center;
+    }
+
+    /* Style for movie list */
+    .row .col-md-6 {
+        margin-bottom: 5px;
+    }
+</style>

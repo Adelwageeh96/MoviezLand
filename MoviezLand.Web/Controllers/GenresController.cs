@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using MoviezLand.Core;
+using MoviezLand.Core.Constants;
 using MoviezLand.Core.Models;
 using MoviezLand.Web.ViewModels.Genres;
 
 namespace MoviezLand.Web.Controllers
 {
+	[Authorize(Roles =$"{Role.Admin},{Role.Manager}")]
 	public class GenresController : Controller
 	{
 		private readonly IUnitOfWork unitOfWork;

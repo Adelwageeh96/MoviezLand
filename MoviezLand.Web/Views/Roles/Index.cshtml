@@ -1,26 +1,49 @@
 ﻿@model IEnumerable<IdentityRole>
 
 @{
-	ViewData["Title"] = "Roles";
+    ViewData["Title"] = "Roles";
 }
 
-<h1>Roles</h1>
-<table class="table table-striped  mt-4">
-    <thead>
-        <tr class="bg-primary  text-white">
-            <th>Role Id</th>
-            <th>Role Name</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var role in Model)
-        {
-            <tr>
-                <td>@role.Id</td>
-                <td>@role.Name</td>
-                <td><a class="btn btn-primary"asp-controller="Roles" asp-action="ManageRoleUsers" asp-route-Id="@role.Id">Manage Role</a></td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h1 class="text-center">Roles</h1>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table table-striped mt-4">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>Role Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var role in Model)
+                {
+                    <tr>
+                        <td>@role.Name</td>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <a class="btn btn-primary" asp-controller="Roles" asp-action="ManageRoleUsers" asp-route-Id="@role.Id">Manage Role</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    /* Additional Styles */
+    .table th {
+        font-weight: bold;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+    }
+
+    .table thead tr {
+        text-align: center;
+    }
+</style>

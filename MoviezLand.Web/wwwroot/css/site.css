@@ -32,3 +32,47 @@ body {
     width: 30px;
     object-fit: cover;
 }
+
+
+/* Additional Styles */
+.table th {
+    font-weight: bold;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+.table thead tr {
+    text-align: center;
+}
+
+/* Style for movie list */
+.row .col-md-6 {
+    margin-bottom: 5px;
+}
+
+
+/* Additional Styles */
+.border {
+    border: 1px solid #ced4da;
+}
+
+.rounded {
+    border-radius: 6px;
+}
+
+.custom-file-label::after {
+    content: "Browse";
+}
+
+
+/* Additional Styles */
+.table th {
+    font-weight: bold;
+}
+
+
+
+

@@ -18,10 +18,11 @@ namespace MoviezLand.EF
         public IBaseRepository<Movie> Movies { get; private set; }
         public IGenreRepository Genres { get; private set; }
 
-
+        public IBaseRepository<MovieGenre> MoviesGenres { get; private set; }
         public UnitOfWork(ApplicationDbContext context)
         {
             this.context = context;
+            MoviesGenres = new BaseRepository<MovieGenre>(context);
             Movies=new BaseRepository<Movie>(context);
             Genres= new GenreRepository(context);
         }

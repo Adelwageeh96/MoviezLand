@@ -18,7 +18,7 @@ namespace MoviezLand.Web.ViewModels.Movies
         [StringLength(2500)]
         public string Story { get; set; }
 
-        public byte[] Poster { get; set; }
+        public byte[]? Poster { get; set; }
 
         [Required]
         public int Year { get; set; }
@@ -26,6 +26,6 @@ namespace MoviezLand.Web.ViewModels.Movies
         [DisplayName("Genres")]
         public List<int> SelectedGenreIds { get; set; } // Store selected genre IDs
 
-        public IEnumerable<Genre> Genres { get; set; }
+        public IEnumerable<Genre>? Genres { get; set; } 
     }
 }

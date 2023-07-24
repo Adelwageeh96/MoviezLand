@@ -15,7 +15,7 @@ namespace MoviezLand.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index","Movies");
         }
 
         public IActionResult Privacy()

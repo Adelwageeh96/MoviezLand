@@ -16,8 +16,4 @@
     <ProjectReference Include="..\MoviezLand.Core\MoviezLand.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
-  </ItemGroup>
-
 </Project>

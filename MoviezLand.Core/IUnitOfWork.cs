@@ -11,9 +11,11 @@ namespace MoviezLand.Core
 {
     public interface IUnitOfWork : IDisposable
     {
-        public IBaseRepository<Movie> Movies { get; }
         public IBaseRepository<MovieGenre> MoviesGenres { get; }
+
+        public IBaseRepository<Review> Reviews { get; }
         public IGenreRepository Genres { get; }
+        public IMovieRepository Movies { get; }
         int Complete();
     }
 }

@@ -7,6 +7,7 @@ using MoviezLand.EF;
 using MoviezLand.Core.IRepository;
 using MoviezLand.EF.Repositories;
 using MoviezLand.Core.IRepositories;
+using NToastNotify;
 
 namespace MoviezLand.Web
 {
@@ -29,6 +30,14 @@ namespace MoviezLand.Web
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<IGenreRepository,GenreRepository>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+
+            builder.Services.AddMvc().AddNToastNotifyToastr(new ToastrOptions()
+            {
+                ProgressBar = true,
+                PositionClass = ToastPositions.TopRight,
+                PreventDuplicates= true,
+                CloseButton= true
+            }) ;
 
 
 

@@ -21,5 +21,7 @@ namespace MoviezLand.Core.Models
         [Required]
         public int Year { get; set; }
         public List<MovieGenre> MovieGenres { get; set; }
+
+        public Review Review { get; set; }
     }
 }

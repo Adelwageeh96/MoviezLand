@@ -14,5 +14,7 @@ namespace MoviezLand.Core.IRepository
          void Add(T item);
          
          T FindById(int id);
+
+        void RemoveRange(IEnumerable<T> models);
     }
 }

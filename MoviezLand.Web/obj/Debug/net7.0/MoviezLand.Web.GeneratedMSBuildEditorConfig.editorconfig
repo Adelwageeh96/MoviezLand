@@ -12,7 +12,7 @@ build_property.RootNamespace = MoviezLand.Web
 build_property.ProjectDir = D:\Project\FullProjects\MoviezLand\MoviezLand.Web\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\Project\FullProjects\MoviezLand\MoviezLand.Web
 build_property._RazorSourceGeneratorDebug = 
 
@@ -102,6 +102,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Project/FullProjects/MoviezLand/MoviezLand.Web/Views/Movies/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/FullProjects/MoviezLand/MoviezLand.Web/Views/Movies/Review.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXFJldmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project/FullProjects/MoviezLand/MoviezLand.Web/Views/Roles/Index.cshtml]

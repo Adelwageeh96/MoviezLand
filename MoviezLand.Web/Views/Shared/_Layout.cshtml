@@ -63,5 +63,6 @@
     <script src="~/lib/bootbox.js/bootbox.min.js"></script>
 	<link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
     @await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("NToastNotify")
 </body>
 </html>

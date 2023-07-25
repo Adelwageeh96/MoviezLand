@@ -35,6 +35,8 @@ namespace MoviezLand.EF.Repositories
 					query.OrderByDescending(orderBy);
 			}
             return query.ToList();
-		} 
-	}
+		}
+
+        public void RemoveRange(IEnumerable<T> models) => context.Set<T>().RemoveRange(models);
+    }
 }

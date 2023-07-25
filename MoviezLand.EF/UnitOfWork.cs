@@ -15,16 +15,18 @@ namespace MoviezLand.EF
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext context;
-        public IBaseRepository<Movie> Movies { get; private set; }
+        public IMovieRepository Movies { get; private set; }
         public IGenreRepository Genres { get; private set; }
 
         public IBaseRepository<MovieGenre> MoviesGenres { get; private set; }
+        public IBaseRepository<Review> Reviews { get; private set; }
         public UnitOfWork(ApplicationDbContext context)
         {
             this.context = context;
             MoviesGenres = new BaseRepository<MovieGenre>(context);
-            Movies=new BaseRepository<Movie>(context);
+            Movies=new MovieRepository(context);
             Genres= new GenreRepository(context);
+            Reviews= new BaseRepository<Review>(context);   
         }
 
         public int Complete()=> context.SaveChanges();

@@ -51,3 +51,46 @@
 		</div>
 	}
 </div>
+@section Scripts {
+	<script>
+		$(document).ready(function () {
+			$('.js-delete').on('click', function () {
+				var btn = $(this);
+
+				bootbox.confirm({
+					message: "Are you sure that you need to delete this movie? If you delete it all reviews in the movie will be deleted",
+					buttons: {
+						confirm: {
+							label: 'Yes',
+							className: 'btn-danger'
+						},
+						cancel: {
+							label: 'No',
+							className: 'btn-outline-secondary'
+						}
+					},
+					callback: function (result) {
+						if (result) {
+							$.ajax({
+								url: '/movies/delete/' + btn.data('id'),
+								success: function () {
+									var movieContainer = btn.parents('.col-12');
+									movieContainer.addClass('animate__animated animate__zoomOut');
+
+									setTimeout(function () {
+										movieContainer.remove();
+									}, 1000);
+
+									toastr.success('Movie deleted');
+								},
+								error: function () {
+									toastr.error('Something went wrong!');
+								}
+							});
+						}
+					}
+				});
+			});
+		});
+	</script>
+}

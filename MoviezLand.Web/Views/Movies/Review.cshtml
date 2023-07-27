@@ -1,19 +1,19 @@
 ﻿@model MovieWithReviewsViewModel
 @{
-	ViewData["Title"] = $"{Model.movie.Title} Reviews";
+	ViewData["Title"] = $"{Model.Movie.Title} Reviews";
 }
 
 <div class="row">
 	<div class="col-md-3">
-		<img src="data:image/*;base64,@(Convert.ToBase64String(Model.movie.Poster))" class="img-thumbnail img-fluid" alt="@Model.movie.Title" style="max-width: 100%;" />
+		<img src="data:image/*;base64,@(Convert.ToBase64String(Model.Movie.Poster))" class="img-thumbnail img-fluid" alt="@Model.Movie.Title" style="max-width: 100%;" />
 	</div>
 	<div class="col-md-7">
 		<div>
-			<h3>@Model.movie.Title</h3>
+			<h3>@Model.Movie.Title</h3>
 		</div>
 		<span class="text-muted">
 			<i class="bi bi-calendar-week"></i>
-			@Model.movie.Year
+			@Model.Movie.Year
 		</span>
 		<br />
 		<span class="text-muted">
@@ -23,6 +23,25 @@
 				@genre.ToString();
 			}
 		</span>
-		<p>@Model.movie.Story</p>
+		<p>@Model.Movie.Story</p>
 	</div>
 </div>
+<br />
+<br />
+<h4 style="font-weight: bold;">Reviews</h4>
+<div class="row mt-4">
+	<div class="col-md-12">
+		<partial name="_AddReview" model="Model.AddEditReviewFormViewModel"></partial>
+	</div>
+</div>
+<br />
+<hr />
+<div class="row mt-4">
+	<div class="col-md-12">
+		<partial name="_MovieReviews" model="Model.Reviews"></partial>
+	</div>
+</div>
+ 
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

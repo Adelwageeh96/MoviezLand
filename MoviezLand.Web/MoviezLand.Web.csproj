@@ -24,4 +24,8 @@
     <ProjectReference Include="..\MoviezLand.EF\MoviezLand.EF.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Reviews\" />
+  </ItemGroup>
+
 </Project>

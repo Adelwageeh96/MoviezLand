@@ -82,5 +82,27 @@ namespace MoviezLand.Web.Controllers
             return View(nameof(Index),genremodel);
         }
 
-	}
+        public IActionResult Delete(int? id)
+        {
+            if (id is not null)
+            {
+                var genre = unitOfWork.Genres.FindById((int)id);
+                if (genre is not null)
+                {
+					var moveisINTheGenre = unitOfWork.MoviesGenres.GetAll().Any(mg => mg.GenreId == id);
+                    if (!moveisINTheGenre)
+                    {
+                        unitOfWork.Genres.Remove(genre);
+                        unitOfWork.Complete();
+                        return RedirectToAction(nameof(Index));
+                    }
+                    return BadRequest(new { message = "The genre has associated movies and cannot be deleted." });
+                }
+                return NotFound();
+            }
+            return BadRequest();
+        }
+
+
+    }
 }

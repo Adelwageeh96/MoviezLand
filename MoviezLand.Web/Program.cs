@@ -30,6 +30,7 @@ namespace MoviezLand.Web
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<IGenreRepository,GenreRepository>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddHttpContextAccessor();
 
             builder.Services.AddMvc().AddNToastNotifyToastr(new ToastrOptions()
             {
@@ -65,6 +66,7 @@ namespace MoviezLand.Web
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
             app.MapRazorPages();
 
             app.Run();

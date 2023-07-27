@@ -38,5 +38,7 @@ namespace MoviezLand.EF.Repositories
 		}
 
         public void RemoveRange(IEnumerable<T> models) => context.Set<T>().RemoveRange(models);
+
+        public void Remove(T model) => context.Set<T>().Remove(model);
     }
 }

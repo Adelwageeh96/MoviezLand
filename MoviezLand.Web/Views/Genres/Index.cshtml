@@ -34,7 +34,7 @@
                         <td>
                             <div class="d-flex justify-content-end">
                                 <partial name="_EditGenre" model="new GenreFormViewModel { Id = genre.Id }"></partial>
-                                <a class="btn btn-danger ml-2" asp-controller="Genres" asp-action="Delete" asp-route-Id="@genre.Id">Delete</a>
+                                <a class="btn btn-danger ml-2 js-delete" href="javascript:;" data-id="@genre.Id">Delete</a>
                             </div>
                         </td>
                     </tr>
@@ -52,6 +52,53 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            $('.js-delete').on('click', function () {
+                var btn = $(this);
+
+                bootbox.confirm({
+                    message: "Are you sure that you need to delete this genre? If you want to delete this genre, you must delete all movies in this genre first.",
+                    buttons: {
+                        confirm: {
+                            label: 'Yes',
+                            className: 'btn-danger'
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-outline-secondary'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: '/genres/delete/' + btn.data('id'),
+                                success: function () {
+                                    var genreRow = btn.closest('tr');
+                                    genreRow.addClass('animate__animated animate__zoomOut');
+
+                                    setTimeout(function () {
+                                        genreRow.remove();
+                                    }, 1000);
+
+                                    toastr.success('Genre deleted');
+                                },
+                                error: function (xhr) {
+                                    var response = xhr.responseJSON;
+                                    if (response && response.message) {
+                                        toastr.error(response.message);
+                                    } else {
+                                        toastr.error('Something went wrong!');
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 }
+
 
 

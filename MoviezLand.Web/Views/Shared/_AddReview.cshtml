@@ -1,0 +1,49 @@
+﻿@model AddEditReviewFormViewModel
+
+<div class="movie-reviews">
+    <div class="review">
+        @if (Model.ProfilePicture != null)
+        {
+            <img src="data:image/*;base64,@(Convert.ToBase64String(Model.ProfilePicture))"
+             class="profile-img" alt="@Model.UserName" />
+        }
+        else
+        {
+            <img src="~/images/f10ff70a7155e5ab666bcdd1b45b726d.jpg" class="profile-img"
+             alt="@Model.UserName" />
+        }
+        <div class="review-content">
+            <div class="user-name">
+                @Model.UserName
+            </div>
+            <form asp-action="Add" asp-controller="Reviews" method="post">
+                <input type="hidden" asp-for="MovieId"/>
+                <input type="hidden" asp-for="UserId" />
+
+                <textarea class="comment-text" id="new-content" rows="4" name="Content" cols="50"
+                          placeholder="Enter your new content here..." style="width: 100%;" onclick="moveCursorToStart()">
+                          @Model.Content
+                </textarea>
+                <div class="button-container">
+                    <button class="btn btn-primary custom-button" type="submit">Add</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function moveCursorToStart() {
+            var textarea = document.getElementById("new-content");
+            textarea.selectionStart = 0;
+            textarea.selectionEnd = 0;
+        }
+    </script>
+}

@@ -5,7 +5,10 @@ using MoviezLand.Core.Constants;
 using MoviezLand.Core.Models;
 using MoviezLand.Web.ViewModels.Movies;
 using MoviezLand.Web.ViewModels.Shared;
+using MoviezLand.Web.ViewModels.Reviews;
 using NToastNotify;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace MoviezLand.Web.Controllers
 {
@@ -14,10 +17,14 @@ namespace MoviezLand.Web.Controllers
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IToastNotification toastNotification;
-        public MoviesController(IUnitOfWork unitOfWork , IToastNotification toastNotification)
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly IHttpContextAccessor httpContextAccessor;
+        public MoviesController(IUnitOfWork unitOfWork , IToastNotification toastNotification,UserManager<ApplicationUser> userManager,IHttpContextAccessor httpContextAccessor)
         {
             this.unitOfWork = unitOfWork;
             this.toastNotification = toastNotification;
+            this.userManager = userManager;
+            this.httpContextAccessor= httpContextAccessor;
         }
 
 
@@ -179,7 +186,7 @@ namespace MoviezLand.Web.Controllers
             return View("Add", model);
         }
 
-        public IActionResult Review([FromRoute] int? id)
+        public async  Task<IActionResult> Review([FromRoute] int? id, [FromRoute] bool isInEditMode=false)
         {
             if(id is not null)
             {
@@ -193,12 +200,65 @@ namespace MoviezLand.Web.Controllers
                 ViewData["GenresNames"] = genres;
                 if (movie is not null)
                 {
+                    var reviews = unitOfWork.Reviews.GetAll().Where(r => r.MovieId == id).ToList();
+                    var reviewFormViewModels = new List<ReviewFormViewModel>();
+                    var curUser = httpContextAccessor.HttpContext.User;
+
+                    foreach (var review in reviews)
+                    {
+                        var user = await userManager.FindByIdAsync(review.UserId);
+
+
+                        reviewFormViewModels.Add(new ReviewFormViewModel
+                        {
+                            MovieId = review.MovieId,
+                            Content = review.Content,
+                            UserId = review.UserId,
+                            Id = review.Id,
+                            UserName = user.UserName,
+                            UserProfile = user.ProfilePicture,
+                            CurrentUser= curUser.FindFirst(ClaimTypes.NameIdentifier)?.Value,
+                            IsInEditMode= isInEditMode
+                        });
+                    }
+                    var userDetails = await userManager.FindByIdAsync(curUser.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                    var model = new AddEditReviewFormViewModel()
+                    {
+                        UserName= userDetails.UserName,
+                        ProfilePicture = userDetails.ProfilePicture,
+                        UserId= curUser.FindFirst(ClaimTypes.NameIdentifier)?.Value,
+                        MovieId=(int) id 
+                    };
+
                     return View(new MovieWithReviewsViewModel
                     {
-                        movie = movie,
-                        reviews = unitOfWork.Reviews.GetAll()
+                        Movie = movie,
+                        Reviews = reviewFormViewModels,
+                        AddEditReviewFormViewModel= model
+
                     });
 
+                }
+                return NotFound();
+
+            }
+            return BadRequest();
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if(id is not null)
+            {
+                var movie = unitOfWork.Movies.FindById((int)id);
+                if(movie is not null)
+                {
+                    var reviewsForMovie = unitOfWork.Reviews.GetAll().Where(r => r.MovieId == id);
+                    unitOfWork.Reviews.RemoveRange(reviewsForMovie);
+                    unitOfWork.Complete();
+                    unitOfWork.Movies.Remove(movie);
+                    unitOfWork.Complete();
+
+                    return RedirectToAction("Index");   
                 }
                 return NotFound();
 

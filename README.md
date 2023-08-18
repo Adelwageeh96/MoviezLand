@@ -1,4 +1,3 @@
-
 # MoviezLand - Movie Management System
 
 MoviezLand is a web-based Movie Management System built using ASP.NET MVC and Entity Framework Core. It allows users to create accounts, explore movie information, write reviews, and manage movie genres. The project follows a three-layer architecture and utilizes the Repository design pattern with the Unit of Work pattern for efficient data access.
@@ -29,41 +28,41 @@ dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package NToastNotify
 
 After installing the packages, you need to update the database and run the migrations. The initial migration will create a default manager account with the following credentials:
+
 Username: manager
 Password: Adel.Wageeh.1
-#Features
+Features
+User Management:
 
-#User Management:
+Users can create accounts and log in.
+Users can explore movie information and write reviews.
+Admin Rights:
 
-1-Users can create accounts and log in.
-2-Users can explore movie information and write reviews.
+Admins can manage movies (add, edit, delete).
+Admins can write reviews on behalf of their username.
+Admins can manage movie genres (add, edit, delete).
+Admins can manage users (add, edit profile, delete).
+Manager Rights:
 
-#Admin Rights:
+Managers have all rights of users and admins.
+Managers can manage user roles (make users admins, managers, or users).
+Getting Started
+Clone the repository:
 
-1-Admins can manage movies (add, edit, delete).
-2-Admins can write reviews on behalf of their username.
-3-Admins can manage movie genres (add, edit, delete).
-4-Admins can manage users (add, edit profile, delete).
 
-#Manager Rights:
-
-1-Managers have all rights of users and admins.
-2-Managers can manage user roles (make users admins, managers, or users).
-
-#Getting Started
-#Clone the repository:
-
-bash
-Copy code
-git clone https://github.com/yourusername/MoviezLand.git
+git clone https://github.com/Adelwageeh96/MoviezLand.git
 cd MoviezLand
 Install dependencies and run migrations:
 
+
 dotnet restore
 dotnet ef database update
+Run the project:
 
 
-#Default Manager Account
+
+Default Manager Account
 Username: manager
 Password: Adel.Wageeh.1
+
 

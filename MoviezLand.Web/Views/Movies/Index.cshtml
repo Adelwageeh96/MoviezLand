@@ -34,14 +34,17 @@
 									<i class="bi bi-chat-right"></i>
 								    Reviews
 								</a>
-								<a asp-action="Edit" asp-route-id="@movie.Id" class="btn btn-outline-primary mr-2">
-									<i class="bi bi-pencil"></i>
-									Edit
-								</a>
-								<a href="javascript:;" class="btn btn-danger js-delete" data-id="@movie.Id">
-									<i class="bi bi-trash"></i>
-									Delete
-								</a>
+								@if(User.IsInRole(Role.Manager)||User.IsInRole(Role.Admin))
+								{
+									<a asp-action="Edit" asp-route-id="@movie.Id" class="btn btn-outline-primary mr-2">
+										<i class="bi bi-pencil"></i>
+										Edit
+									</a>
+									<a href="javascript:;" class="btn btn-danger js-delete" data-id="@movie.Id">
+										<i class="bi bi-trash"></i>
+										Delete
+									</a>
+								}
 							</div>
 
 						</div>

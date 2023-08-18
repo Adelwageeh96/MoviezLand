@@ -62,11 +62,10 @@ namespace MoviezLand.Web.Controllers.Identity
                 LastName = model.LastName,
                 Email = model.Email,
                 BirthDate = model.BirthDate,
-                PasswordHash = model.Password,
                 PhoneNumber = model.PhoneNumber,
                 UserName = new MailAddress(model.Email).User
             };
-            var result = await userManager.CreateAsync(user);
+            var result = await userManager.CreateAsync(user,model.Password);
             if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)

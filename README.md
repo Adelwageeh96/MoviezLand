@@ -33,25 +33,25 @@ Username: manager
 Password: Adel.Wageeh.1
 #Features
 
-##User Management:
+#User Management:
 
 1-Users can create accounts and log in.
 2-Users can explore movie information and write reviews.
 
-##Admin Rights:
+#Admin Rights:
 
 1-Admins can manage movies (add, edit, delete).
 2-Admins can write reviews on behalf of their username.
 3-Admins can manage movie genres (add, edit, delete).
 4-Admins can manage users (add, edit profile, delete).
 
-33Manager Rights:
+#Manager Rights:
 
 1-Managers have all rights of users and admins.
 2-Managers can manage user roles (make users admins, managers, or users).
 
 #Getting Started
-##Clone the repository:
+#Clone the repository:
 
 bash
 Copy code

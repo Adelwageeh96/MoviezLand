@@ -2,7 +2,7 @@
 
 MoviezLand is a comprehensive movie management system built using C#, HTML, CSS, JavaScript, LINQ, Entity Framework Core, ASP.NET MVC, and ORM technologies. It follows a three-layer architecture and employs the Repository design pattern with the Unit of Work concept for efficient data management. This system allows users to create accounts, explore movie information, write reviews, and manage movies and genres. Administrators have enhanced privileges to manage users, movies, and genres.
 
-Note: You can watch video and summary in arabic from here (https://www.linkedin.com/posts/adel-wageeh-721546228_%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85-%D8%B9%D9%84%D9%8A%D9%83%D9%85-%D8%AD%D8%A7%D8%A8%D8%A8-%D8%A7%D8%B4%D8%A7%D8%B1%D9%83-%D9%85%D8%B9%D8%A7%D9%83%D9%85-%D9%85%D8%B4%D8%B1%D9%88%D8%B9-%D8%B5%D8%BA%D9%8A%D8%B1-activity-7098379650346758144-iufC?utm_source=share&utm_medium=member_android)
+Note: You can watch video and summary in arabic from here (https://www.linkedin.com/feed/update/urn:li:activity:7098379650346758144/)
 
 ## Table of Contents
 
